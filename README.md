@@ -10,7 +10,7 @@ To add Quick Replies to a project:
 
 A simple example shows an event listener that listens for Image Messages, and on receiving one prompts the user to either give a thumbs up, thumbs down, or random innane comment:
 
-```
+```javascript
 document.addEventListener('layer-quick-replies-update', function(evt) {
   const quickRepliesWidget = evt.target;
   const newMessage = evt.detail.message;
@@ -39,7 +39,7 @@ document.addEventListener('layer-quick-replies-update', function(evt) {
 ```
 
 Alternatively, you may embed quick reply options in the message itself with a Message Part that looks like:
-```
+```javascript
 {
    mime_type: 'application/vnd.custom.quickreplies+json',
    body: JSON.stringify([{
@@ -56,7 +56,7 @@ Alternatively, you may embed quick reply options in the message itself with a Me
 
 Then on receiving a Message with such a part, our event handler would look like:
 
-```
+```javascript
 document.addEventListener('layer-quick-replies-update', function(evt) {
    const quickRepliesWidget = evt.target;
    const newMessage = evt.detail.message;
