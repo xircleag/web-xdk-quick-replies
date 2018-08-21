@@ -1,6 +1,6 @@
 # @layerhq/web-xdk-quick-replies
 
-* This is an unsupported rough draft exploring Quick Replies *
+**This is an unsupported rough draft exploring Quick Replies**
 
 To add Quick Replies to a project:
 
