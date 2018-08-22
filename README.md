@@ -74,3 +74,21 @@ document.addEventListener('layer-quick-replies-update', function(evt) {
    }
 });
 ```
+
+## Customizing the Timeout Duration
+
+The only customizable property on this widget is the `fadesAfter` property which indicates how many miliseconds to wait before fading out the quick replies.  While turning off the delay is not currently supported, one can simply set a value measured in years and then not worry about it.
+
+```javascript
+Layer.UI.setupMixins({
+  'layer-quick-replies': {
+    properties: {
+      fadesAfter: {
+        value: 1000 * 60 * 60 * 24 * 100, // 100 days
+      }
+    }
+  }
+});
+```
+
+Note that `setupMixins` must be called prior to calling `Layer.init()`.
