@@ -1,6 +1,6 @@
 {
   "name": "@layerhq/web-xdk-quick-replies",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Adds Quick Replies to the Web XDK",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/layerhq/web-xdk-quick-replies#readme",
   "peerDependencies": {
-    "@layerhq/web-xdk": "^4.0.4"
+    "@layerhq/web-xdk": "> 4.0.0"
   }
 }

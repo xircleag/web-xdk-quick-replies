@@ -111,10 +111,17 @@ Layer.UI.registerComponent('layer-quick-replies', {
   },
   methods: {
     onAfterCreate() {
-      this.parentComponent.query.on('change:insert', this._onNewMessage, this);
+      this._setupParentComponent();
       this.addEventListener('animationend', this.onAnimEnd.bind(this));
       this.nodes.next.addEventListener('click', this._scrollToNext.bind(this));
       this.nodes.prev.addEventListener('click', this._scrollToPrev.bind(this));
+    },
+    _setupParentComponent() {
+      if (this.parentComponent.query) {
+        this.parentComponent.query.on('change:insert', this._onNewMessage, this);
+      } else {
+        setTimeout(() => this._setupParentComponent(), 100);
+      }
     },
     _onNewMessage(evt) {
       this.items = [];

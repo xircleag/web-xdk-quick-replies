@@ -47,11 +47,11 @@ Alternatively, you may embed quick reply options in the message itself with a Me
    body: JSON.stringify([{
      text: "Hello",
      modelName: 'TextModel',
-     data: { text: "Hello there!" }
+     props: { text: "Hello there!" }
    }, {
      text: "Sunrise",
      modelName: 'ImageModel',
-     data: { sourceUrl: "https://somepictures.com/sunrise.jpg" }
+     props: { sourceUrl: "https://somepictures.com/sunrise.jpg" }
    }]);
 }
 ```
@@ -62,7 +62,7 @@ Then on receiving a Message with such a part, our event handler would look like:
 document.addEventListener('layer-quick-replies-update', function(evt) {
    const quickRepliesWidget = evt.target;
    const newMessage = evt.detail.message;
-   const quickRepliesPart = newMessage.filterParts(part => part.mimeType === 'application/vnd.custom.quickreplies+json');
+   const quickRepliesPart = newMessage.filterParts(part => part.mimeType === 'application/vnd.custom.quickreplies+json')[0];
    if (quickRepliesPart) {
      const replies = JSON.parse(quickRepliesPart.body);
      quickRepliesWidget.showItems(replies.map(replyData => {
